@@ -11,4 +11,33 @@ package probabilitycalculator;
  */
 public class Event {
     
+    private String name;
+    private float n;
+    private float bigN;
+    
+    public Event(String name, float n, float bigN){
+        this.name = name;
+        this.n = n;
+        this.bigN = bigN;
+    }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setSmallN(float n){
+        this.n = n;
+    }
+    public float getSmallN(){
+        return n;
+    }
+    public void setBigN(float bigN){
+        this.bigN = bigN;
+    }
+    public float getBigN(){
+        return bigN;
+    }
+       
 }

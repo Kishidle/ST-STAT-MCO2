@@ -16,8 +16,15 @@ public class CalculatorView extends javax.swing.JFrame {
     /**
      * Creates new form CalculatorView
      */
+    private Event event;
+    
     public CalculatorView() {
         initComponents();
+    }
+    
+    public void updateCalc(Event event){
+        this.event = event;
+        calcField.setText("P(" + event.getName());
     }
 
     /**
@@ -33,6 +40,7 @@ public class CalculatorView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         calcField = new javax.swing.JTextField();
         addEventButton = new javax.swing.JButton();
+        computeMarProb = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,14 +62,24 @@ public class CalculatorView extends javax.swing.JFrame {
             }
         });
 
+        computeMarProb.setText("Compute Marginal Probability");
+        computeMarProb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                computeMarProbActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addEventButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(addEventButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(computeMarProb))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
@@ -71,7 +89,9 @@ public class CalculatorView extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(addEventButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addEventButton)
+                    .addComponent(computeMarProb))
                 .addContainerGap(261, Short.MAX_VALUE))
         );
 
@@ -95,9 +115,17 @@ public class CalculatorView extends javax.swing.JFrame {
 
     private void addEventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEventButtonActionPerformed
         // TODO add your handling code here:
-        String evtName = JOptionPane.showInputDialog(this, "Enter a name for the event");
-        calcField.setText(calcField.getText() + evtName);
+        EventAddView eav = new EventAddView(this);
+        eav.setVisible(true);
+        
+        
     }//GEN-LAST:event_addEventButtonActionPerformed
+
+    private void computeMarProbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeMarProbActionPerformed
+        // TODO add your handling code here:
+        float probAns = event.getSmallN() / event.getBigN();
+        calcField.setText(Float.toString(probAns));
+    }//GEN-LAST:event_computeMarProbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,6 +165,7 @@ public class CalculatorView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addEventButton;
     private javax.swing.JTextField calcField;
+    private javax.swing.JButton computeMarProb;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
