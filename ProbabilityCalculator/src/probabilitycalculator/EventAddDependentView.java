@@ -132,12 +132,13 @@ public class EventAddDependentView extends javax.swing.JFrame {
         
         for(int i = 0; i < eventList.size(); i++){
             if(eventList.get(i).getName().equals(dependentComboBox.getSelectedItem().toString())){
-                Event event = new Event(eventName.getText(), eventList.get(i).getSmallN() - 1, eventList.get(i).getBigN() - 1, eventList.get(i).getName());
+                Event newEvent = new Event(eventName.getText(), eventList.get(i).getSmallN() - 1, eventList.get(i).getBigN() - 1, eventList.get(i).getName());
+                mainView.updateCalc(newEvent);
             }
                 
         }
        
-       
+       this.dispose();
     }//GEN-LAST:event_addButton
 
     /**
