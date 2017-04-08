@@ -20,11 +20,43 @@ public class CalculatorView extends javax.swing.JFrame {
     /**
      * Creates new form CalculatorView
      */
+    
+    String[] cardnames = {"Blazing Breath", "Unicorn Dancer Unica", "Wind Reader Zell", "Dragon Oracle", "Breath of the Salamander", "Grimnir, War Cyclone", "Imprisoned Dragon", "Dragon Warrior", "Rahab", "Sibyl of the Waterwyrm", "Draconic Fervor", "Lightning Blast", "Sahaquiel", "Lucifer", "Ouroboros", "Israfil", "Bahamut"};
+    String[] cardtype = {"Spell", "Follower", "Follower", "Spell", "Spell", "Follower", "Follower", "Follower", "Follower", "Follower", "Spell", "Spell", "Follower", "Follower", "Follower", "Follower", "Follower"};
+    String[] cardrarity = {"Bronze", "Silver", "Silver", "Bronze", "Gold", "Gold", "Silver", "Silver", "Gold", "Legendary", "Silver", "Silver", "Legendary", "Legendary", "Legendary", "Legendary", "Legendary"};
+    int[] cardcost = {1, 2, 2, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 8, 9, 10};
+    int[] numdeck = {2, 3, 1, 3, 3, 2, 3, 3, 2, 2, 2, 2, 3, 3, 1, 2, 3};
+    boolean[] animated = {false, true, true, true, false, false, true, true, false, false, false, false, true, false, true, false, true};
+    
+    List<Card> cards = new ArrayList<Card>();
+    
     private Event event;
+    
     List<Event> events = new ArrayList<Event>();
     
     public CalculatorView() {
         initComponents();
+        
+        System.out.println(cardnames.length);
+        System.out.println(cardtype.length);
+        System.out.println(cardrarity.length);
+        System.out.println(cardcost.length);
+        System.out.println(numdeck.length);
+        System.out.println(animated.length);
+        
+        for(int i = 0; i < 17; i++){
+            Card temp = new Card(cardnames[i], cardtype[i], cardrarity[i], cardcost[i], numdeck[i], animated[i]);
+            
+            cards.add(temp);
+        }
+        
+        DefaultListModel model = new DefaultListModel();
+        
+        for(int i = 0; i < cards.size(); i++){
+            model.addElement(cards.get(i).getName());
+        }
+        
+        jList1.setModel(model);
     }
     
     public void updateCalc(Event event){
@@ -56,6 +88,7 @@ public class CalculatorView extends javax.swing.JFrame {
         computeIndeConProb = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        ResultField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +121,8 @@ public class CalculatorView extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jList1);
 
+        ResultField.setText("Result: ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -101,7 +136,10 @@ public class CalculatorView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(computeMarProb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(computeIndeConProb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(computeIndeConProb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(ResultField, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -109,7 +147,9 @@ public class CalculatorView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ResultField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                 .addComponent(computeIndeConProb)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -144,8 +184,26 @@ public class CalculatorView extends javax.swing.JFrame {
 
     private void computeMarProbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeMarProbActionPerformed
         // TODO add your handling code here:
-        float probAns = event.getSmallN() / event.getBigN();
-       // calcField.setText(Float.toString(probAns));
+        
+        List<String> names = new ArrayList<String>();
+        
+        for(int i = 0; i < events.size(); i++){
+            names.add(events.get(i).getName());
+        }
+        
+        Object[] list = names.toArray();
+        
+        Object answer = JOptionPane.showInputDialog(null, "Please choose an event", "Marginal Probability", JOptionPane.QUESTION_MESSAGE, null, list, 0);
+       
+        for(int i = 0; i < events.size(); i++){
+            if(answer == events.get(i).getName()){
+                float result = event.getSmallN() / event.getBigN();
+                ResultField.setText("Result: " + result);
+            }
+        }
+        
+        System.out.println(answer);
+        
     }//GEN-LAST:event_computeMarProbActionPerformed
 
     private void computeIndeConProbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeIndeConProbActionPerformed
@@ -189,6 +247,7 @@ public class CalculatorView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ResultField;
     private javax.swing.JButton addEventButton;
     private javax.swing.JButton computeIndeConProb;
     private javax.swing.JButton computeMarProb;
