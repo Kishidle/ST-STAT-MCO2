@@ -149,7 +149,7 @@ public class CalculatorView extends javax.swing.JFrame {
 
     private void dependentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dependentButtonActionPerformed
         // TODO add your handling code here:
-        EventAddDependentView dpView = new EventAddDependentView(this, eventStringList);
+        EventAddDependentView dpView = new EventAddDependentView(this, eventStringList, eventList);
         dpView.setVisible(true);
     }//GEN-LAST:event_dependentButtonActionPerformed
 

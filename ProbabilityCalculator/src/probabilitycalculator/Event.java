@@ -14,13 +14,22 @@ public class Event {
     private String name;
     private float n;
     private float bigN;
+    private String dependentOn;
     
-    public Event(String name, float n, float bigN){
+    public Event(String name, float n, float bigN, String dependentOn){
         this.name = name;
         this.n = n;
         this.bigN = bigN;
+        this.dependentOn = dependentOn;
     }
     
+    public void setDependent(String dependentOn){
+        this.dependentOn = dependentOn;
+     
+    }
+    public String getDependent(){
+        return dependentOn;
+    }
     public void setName(String name){
         this.name = name;
     }
