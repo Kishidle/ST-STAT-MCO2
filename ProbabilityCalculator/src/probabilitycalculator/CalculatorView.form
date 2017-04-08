@@ -40,6 +40,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="dependentButton" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -49,7 +50,15 @@
                               <Component id="computeMarProb" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" min="-2" pref="417" max="-2" attributes="0"/>
+=======
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="addEventButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="computeMarProb" min="-2" max="-2" attributes="0"/>
+>>>>>>> parent of 5c90f4e... jlist
                       </Group>
+                      <Component id="jScrollPane1" min="-2" pref="417" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
@@ -65,9 +74,13 @@
                       <Component id="addEventButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="computeMarProb" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="dependentButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="223" max="32767" attributes="0"/>
+=======
+                  <EmptySpace pref="261" max="32767" attributes="0"/>
+>>>>>>> parent of 5c90f4e... jlist
               </Group>
           </Group>
         </DimensionLayout>
@@ -106,6 +119,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="computeMarProbActionPerformed"/>
           </Events>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JButton" name="dependentButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Add Dependent Event"/>
@@ -114,6 +128,8 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dependentButtonActionPerformed"/>
           </Events>
         </Component>
+=======
+>>>>>>> parent of 5c90f4e... jlist
       </SubComponents>
     </Container>
   </SubComponents>

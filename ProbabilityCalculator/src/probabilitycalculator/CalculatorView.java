@@ -6,7 +6,10 @@
 package probabilitycalculator;
 
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
 import java.util.*;
+=======
+>>>>>>> parent of 5c90f4e... jlist
 
 /**
  *
@@ -17,9 +20,14 @@ public class CalculatorView extends javax.swing.JFrame {
     /**
      * Creates new form CalculatorView
      */
+<<<<<<< HEAD
     private Event currEvent;
     private ArrayList<String> eventStringList;
     private ArrayList<Event> eventList;
+=======
+    private Event event;
+    
+>>>>>>> parent of 5c90f4e... jlist
     public CalculatorView() {
         initComponents();
         eventStringList = new ArrayList<String>();
@@ -27,12 +35,17 @@ public class CalculatorView extends javax.swing.JFrame {
     }
     
     public void updateCalc(Event event){
+<<<<<<< HEAD
         
         currEvent = event;
         
         eventList.add(event);
         calcField.setText("P(" + event.getName());
         eventStringList.add(event.getName());
+=======
+        this.event = event;
+        calcField.setText("P(" + event.getName());
+>>>>>>> parent of 5c90f4e... jlist
     }
 
     /**
@@ -49,7 +62,10 @@ public class CalculatorView extends javax.swing.JFrame {
         calcField = new javax.swing.JTextField();
         addEventButton = new javax.swing.JButton();
         computeMarProb = new javax.swing.JButton();
+<<<<<<< HEAD
         dependentButton = new javax.swing.JButton();
+=======
+>>>>>>> parent of 5c90f4e... jlist
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +94,7 @@ public class CalculatorView extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         dependentButton.setText("Add Dependent Event");
         dependentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,12 +102,15 @@ public class CalculatorView extends javax.swing.JFrame {
             }
         });
 
+=======
+>>>>>>> parent of 5c90f4e... jlist
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
+<<<<<<< HEAD
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dependentButton)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -99,6 +119,14 @@ public class CalculatorView extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(computeMarProb))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(addEventButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(computeMarProb))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> parent of 5c90f4e... jlist
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -110,9 +138,13 @@ public class CalculatorView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addEventButton)
                     .addComponent(computeMarProb))
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dependentButton)
                 .addContainerGap(223, Short.MAX_VALUE))
+=======
+                .addContainerGap(261, Short.MAX_VALUE))
+>>>>>>> parent of 5c90f4e... jlist
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,6 +175,7 @@ public class CalculatorView extends javax.swing.JFrame {
 
     private void computeMarProbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeMarProbActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         float probAns = currEvent.getSmallN() / currEvent.getBigN();
         calcField.setText(Float.toString(probAns));
     }//GEN-LAST:event_computeMarProbActionPerformed
@@ -153,6 +186,12 @@ public class CalculatorView extends javax.swing.JFrame {
         dpView.setVisible(true);
     }//GEN-LAST:event_dependentButtonActionPerformed
 
+=======
+        float probAns = event.getSmallN() / event.getBigN();
+        calcField.setText(Float.toString(probAns));
+    }//GEN-LAST:event_computeMarProbActionPerformed
+
+>>>>>>> parent of 5c90f4e... jlist
     /**
      * @param args the command line arguments
      */
@@ -192,7 +231,10 @@ public class CalculatorView extends javax.swing.JFrame {
     private javax.swing.JButton addEventButton;
     private javax.swing.JTextField calcField;
     private javax.swing.JButton computeMarProb;
+<<<<<<< HEAD
     private javax.swing.JButton dependentButton;
+=======
+>>>>>>> parent of 5c90f4e... jlist
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
